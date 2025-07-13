@@ -17,11 +17,17 @@ app.add_middleware(
 )
 
 # Configuración de email
-SMTP_SERVER = config("SMTP_SERVER", default="smtp.gmail.com")
-SMTP_PORT = config("SMTP_PORT", default=465)
-SMTP_USER = config("SMTP_USER")  # Tu correo de desarrollador
-SMTP_PASSWORD = config("SMTP_PASSWORD")  # Contraseña de aplicación
-DEVELOPER_EMAIL = config("DEVELOPER_EMAIL")  # Correo donde recibirás los mensajes
+SMTP_SERVER = config("SMTP_SERVER", default="smtpsnapnoshapp.gmail.com")
+SMTP_PORT = config("SMTP_PORT", default=465, cast=int)
+SMTP_USER = config("SMTP_USER", default="achataipepercy2000@gmail.com")
+SMTP_PASSWORD = config("SMTP_PASSWORD", default="snapnosh1235")
+DEVELOPER_EMAIL = config("DEVELOPER_EMAIL", default="atp.dev000@gmail.com")
+
+#SMTP_SERVER = config("SMTP_SERVER", default="smtp.gmail.com")
+#SMTP_PORT = config("SMTP_PORT", default=465)
+#SMTP_USER = config("SMTP_USER")  # Tu correo de desarrollador
+#SMTP_PASSWORD = config("SMTP_PASSWORD")  # Contraseña de aplicación
+#DEVELOPER_EMAIL = config("DEVELOPER_EMAIL")  # Correo donde recibirás los mensajes
 
 @app.post("/send-feedback")
 async def send_feedback(
