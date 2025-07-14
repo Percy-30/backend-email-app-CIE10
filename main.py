@@ -20,7 +20,7 @@ SMTP_SERVER = config("SMTP_SERVER", default="smtp.mailersend.net")
 SMTP_PORT = config("SMTP_PORT", default=587, cast=int)
 SMTP_USER = config("SMTP_USER")
 SMTP_PASSWORD = config("SMTP_PASSWORD")
-DEVELOPER_EMAIL = config("DEVELOPER_EMAIL", default="snapnoshapp@gmail.com")
+DEVELOPER_EMAIL = config("DEVELOPER_EMAIL", default="atp.dev000@gmail.com")
 
 @app.post("/send-feedback")
 async def send_feedback(
