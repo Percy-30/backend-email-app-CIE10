@@ -61,14 +61,19 @@ async def send_feedback(
 
         # Enviar el correo por SMTP
         with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT) as server:
-            server.starttls()
+            #server.starttls()
             server.login(SMTP_USER, SMTP_PASSWORD)
             server.send_message(msg)
 
         return {"status": "success", "message": "Comentario enviado correctamente"}
 
+    except smtplib.SMTPException as e:
+        raise HTTPException(status_code=500, detail=f"SMTP error: {str(e)}")
     except Exception as e:
-        raise HTTPException(
-            status_code=500,
-            detail=f"❌ Error al enviar el correo: {str(e)}"
-        )
+        raise HTTPException(status_code=500, detail=f"Unexpected error: {str(e)}")
+    
+    #except Exception as e:
+    #    raise HTTPException(
+    #        status_code=500,
+    #        detail=f"❌ Error al enviar el correo: {str(e)}"
+    #    )
