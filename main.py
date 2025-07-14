@@ -16,7 +16,7 @@ app.add_middleware(
 )
 
 # Configuración SMTP desde .env o variables de entorno
-SMTP_SERVER = config("SMTP_SERVER", default="smtp.mailersend.net")
+SMTP_SERVER = config("SMTP_SERVER", default="smtp.gmail.com")
 SMTP_PORT = config("SMTP_PORT", default=587, cast=int)
 SMTP_USER = config("SMTP_USER")
 SMTP_PASSWORD = config("SMTP_PASSWORD")
