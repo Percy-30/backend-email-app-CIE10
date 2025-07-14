@@ -17,7 +17,7 @@ app.add_middleware(
 
 # Configuración SMTP desde .env o variables de entorno
 SMTP_SERVER = config("SMTP_SERVER", default="smtp.gmail.com")
-SMTP_PORT = config("SMTP_PORT", default=587, cast=int)
+SMTP_PORT = config("SMTP_PORT", default=465, cast=int) ## 465 for SSL, 587 for TLS
 SMTP_USER = config("SMTP_USER")
 SMTP_PASSWORD = config("SMTP_PASSWORD")
 DEVELOPER_EMAIL = config("DEVELOPER_EMAIL", default="atp.dev000@gmail.com")
