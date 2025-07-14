@@ -20,7 +20,7 @@ SMTP_SERVER = config("SMTP_SERVER", default="smtp.mailersend.net")
 SMTP_PORT = config("SMTP_PORT", default=587, cast=int)
 SMTP_USER = config("SMTP_USER")
 SMTP_PASSWORD = config("SMTP_PASSWORD")
-DEVELOPER_EMAIL = config("DEVELOPER_EMAIL", default="atp.dev000@gmail.com")
+DEVELOPER_EMAIL = config("DEVELOPER_EMAIL", default="snapnoshapp@gmail.com")
 
 @app.post("/send-feedback")
 async def send_feedback(
@@ -49,14 +49,13 @@ async def send_feedback(
         """)
 
         # Adjuntar archivos (máximo 5MB por archivo)
+        # Adjuntar archivos
         for file in files:
-            content = await file.read()
-            if len(content) > 5 * 1024 * 1024:
-                continue  # ignorar archivos grandes
+            file_content = await file.read()
             msg.add_attachment(
-                content,
-                maintype=file.content_type.split("/")[0],
-                subtype=file.content_type.split("/")[-1],
+                file_content,
+                maintype="application",
+                subtype="octet-stream",
                 filename=file.filename
             )
 
