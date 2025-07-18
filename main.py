@@ -56,12 +56,12 @@ async def send_feedback(
             )
 
         # Determinar remitente para responder
-        sender_email = contact if is_valid_email(contact) else "no-reply@snapnosh.com"
+        sender_email = contact if is_valid_email(contact) else "no-reply@Cie10.com"
 
         # Crear mensaje (el resto sigue igual)
         msg = EmailMessage()
-        msg["Subject"] = "📩 Nuevo comentario recibido desde SnapNosh"
-        msg["From"] = f"SnapNosh App <{SMTP_USER}>"
+        msg["Subject"] = "📩 Nuevo comentario recibido desde CIE-10"
+        msg["From"] = f"CIE-10 App <{SMTP_USER}>"
         msg["To"] = DEVELOPER_EMAIL
         msg["Reply-To"] = sender_email
 
